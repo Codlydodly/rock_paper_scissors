@@ -1,6 +1,6 @@
 import sqlite3
 from uuid import UUID
-from src.rock_paper_scissors.entities import GameBoard, move_from_str
+from rock_paper_scissors.entities import GameBoard, move_from_str
 from typing import Optional
 
 
