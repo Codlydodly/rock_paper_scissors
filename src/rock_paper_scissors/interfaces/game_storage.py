@@ -1,6 +1,6 @@
 import sqlite3
 from uuid import UUID
-from rock_paper_scissors.src.rock_paper_scissors.entities import GameBoard, move_from_str
+from src.rock_paper_scissors.entities import GameBoard, move_from_str
 from typing import Optional
 
 
@@ -11,9 +11,6 @@ class GameStorage:
 
     def mad_hax(self):
         cursor = self._connect()
-        cursor.execute('''
-            DROP TABLE game_board;
-            ''')
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS game_board (
                 game_id TEXT PRIMARY KEY,
