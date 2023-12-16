@@ -63,7 +63,8 @@ The main table definition has already been created with the name `game_board_tab
 ### Save the local DB changes as a dump file
 
 ```bash
-docker-compose exec database mysqldump -u root -p fastapi_app > database/db/dump.sql
+docker-compose exec mysql mysqldump -u root -p fastapi_app > database/db/dumpname.sql
+
 ```
 
 ### API documentation
