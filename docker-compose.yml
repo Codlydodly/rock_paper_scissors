@@ -28,3 +28,14 @@ services:
       - "8000:8000"
     env_file:
       - ./src/local.env
+  front_end:
+    depends_on:
+      - api
+    container_name: front_end
+    platform: linux/x86_64
+    build: ./front_end
+    ports:
+      - "3000:3000"
+    environment:
+      - GAME_API_URL=http://localhost:8000
+
