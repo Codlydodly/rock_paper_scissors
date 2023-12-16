@@ -1,7 +1,6 @@
-from rock_paper_scissors.src.rock_paper_scissors.entities import GameBoard, Move
 from uuid import UUID
-from rock_paper_scissors.src.rock_paper_scissors.interfaces.game_storage import GameStorage
-from typing import Optional
+from rock_paper_scissors.entities import GameBoard, Move
+from rock_paper_scissors.interfaces.game_storage import GameStorage
 
 
 class RockPaperScissors:

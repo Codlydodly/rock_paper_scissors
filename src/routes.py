@@ -1,7 +1,7 @@
 from uuid import UUID
-from rock_paper_scissors.src.rock_paper_scissors.game import RockPaperScissors
-from rock_paper_scissors.src.rock_paper_scissors.entities import move_from_str
-from rock_paper_scissors.src.rock_paper_scissors.interfaces.game_storage import GameStorage
+from rock_paper_scissors.game import RockPaperScissors
+from rock_paper_scissors.entities import move_from_str
+from rock_paper_scissors.interfaces.game_storage import GameStorage
 from fastapi import FastAPI
 
 app = FastAPI()
