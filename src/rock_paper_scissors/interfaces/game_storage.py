@@ -1,7 +1,7 @@
 import sqlite3
 from uuid import UUID
 from rock_paper_scissors.entities import GameBoard, move_from_str
-from typing import Optional
+from typing import Optional, List, Dict
 
 
 class GameStorage:
@@ -36,13 +36,7 @@ class GameStorage:
         self._disconnect(False)
         if not game:
             raise Exception('no game')
-        return GameBoard(
-            game_id=UUID(game[0]),
-            player_1=UUID(game[1]),
-            player_2=game[2] if game[2] is None else UUID(game[2]),
-            player_1_move=move_from_str(game[3]),
-            player_2_move=game[4] if game[4] is None else move_from_str(game[4]),
-        )
+        return self._rows_to_gameboard([game])[0]
 
     def save_game(self, game_board: GameBoard):
         cursor = self._connect()
@@ -60,6 +54,29 @@ class GameStorage:
             )
         )
         self._disconnect(True)
+
+    def get_open_game_ids(self) -> List[UUID]:
+        cursor = self._connect()
+        cursor.execute('SELECT game_id FROM game_board WHERE player_2 IS NULL AND player_2_move IS NULL')
+
+        results = cursor.fetchall()
+        self._disconnect(False)
+
+        return [UUID(game_id) for game_id in results]
+
+    def _rows_to_gameboard(self, rows: List[tuple[str]]) -> List[GameBoard]:
+        return [
+            GameBoard(
+                game_id=UUID(row[0]),
+                player_1=UUID(row[1]),
+                player_2=row[2] if row[2] is None else UUID(row[2]),
+                player_1_move=move_from_str(row[3]),
+                player_2_move=row[4] if row[4] is None else move_from_str(row[4]),
+            )
+            for row in rows
+        ]
+
+
 
     def _connect(self):
         self.db = sqlite3.connect('your_database.db')

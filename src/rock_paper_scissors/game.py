@@ -1,6 +1,7 @@
 from uuid import UUID
 from rock_paper_scissors.entities import GameBoard, Move
 from rock_paper_scissors.interfaces.game_storage import GameStorage
+from typing import List, Dict
 
 
 class RockPaperScissors:
@@ -18,3 +19,6 @@ class RockPaperScissors:
         game_board.set_player_2_params(player_id, move)
         self.game_storage.save_game(game_board)
         return game_board.check_for_winner()
+
+    def get_open_game_ids(self) -> List[UUID]:
+        return self.game_storage.get_open_game_ids()

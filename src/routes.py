@@ -3,6 +3,8 @@ from rock_paper_scissors.game import RockPaperScissors
 from rock_paper_scissors.entities import move_from_str
 from rock_paper_scissors.interfaces.game_storage import GameStorage
 from fastapi import FastAPI
+from typing import List
+
 
 app = FastAPI()
 
@@ -21,7 +23,7 @@ def player_2_move(game_id: UUID, player_id: UUID, move: str) -> str:
     return result
 
 
-
-
-
-
+@app.get('/open_games')
+def get_open_game_ids() -> List[UUID]:
+    open_game_ids = RockPaperScissors(GameStorage()).get_open_game_ids()
+    return open_game_ids
