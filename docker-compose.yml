@@ -41,6 +41,6 @@ services:
     volumes:
       - './front_end:/app'
       - '/app/node_modules'
-    environment:
-      - GAME_API_URL=http://localhost:8000
+    env_file:
+      - ./front_end/.env
 
