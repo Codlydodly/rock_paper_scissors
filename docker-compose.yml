@@ -33,9 +33,14 @@ services:
       - api
     container_name: front_end
     platform: linux/x86_64
-    build: ./front_end
+    build: 
+      context: ./front_end:/app
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - .:/front_end/app
+      - /app/node_modules
     environment:
       - GAME_API_URL=http://localhost:8000
 

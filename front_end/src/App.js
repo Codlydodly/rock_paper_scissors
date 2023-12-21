@@ -1,5 +1,5 @@
 import React from 'react';
-import GameIDTable from 'src/components/gameListTable';
+import GameIDTable from './components/gameListTable';
 
 function App() {
   console.log('TESTING ZACH')

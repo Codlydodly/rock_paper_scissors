@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import fetchOpenGameIDs from 'src/services/gameApi';
+import { fetchOpenGameIDs } from '../services/gameApi';
 
 
 const GameIDTable = () => {
