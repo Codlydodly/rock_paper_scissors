@@ -61,8 +61,7 @@ class GameStorage:
 
         results = cursor.fetchall()
         self._disconnect(False)
-
-        return [UUID(game_id) for game_id in results]
+        return [UUID(row[0]) for row in results]
 
     def _rows_to_gameboard(self, rows: List[tuple[str]]) -> List[GameBoard]:
         return [
