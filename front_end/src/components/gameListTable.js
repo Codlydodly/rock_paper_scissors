@@ -1,5 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchOpenGameIDs } from '../services/gameApi';
 
 
@@ -27,7 +27,9 @@ const GameIDTable = () => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              <td>{item}</td>
+              <td>
+              <Link to={`/game/${item}`}>{item}</Link>
+              </td>
             </tr>
           ))}
         </tbody>

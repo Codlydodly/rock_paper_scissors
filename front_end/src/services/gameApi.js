@@ -10,11 +10,11 @@ export const fetchOpenGameIDs = async () => {
     }
 };
 
-const playerOneTurn = async() => {
+export const playerOneTurn = async() => {
     return [];
 };
 
-const playerTwoTurn = async() => {
+export const playerTwoTurn = async() => {
     return [];
 };
 
