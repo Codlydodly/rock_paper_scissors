@@ -18,6 +18,7 @@ If Docker is running successfully, the API and DB server will be launched as sho
 
 - API server: http://localhost:8000
 - DB server: http://localhost:3306
+- Front End server: http://localhost:3000
 
 _Be careful, it won't work if the port is occupied by another application._
 
