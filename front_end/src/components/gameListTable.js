@@ -25,10 +25,10 @@ const GameIDTable = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {data.map((gameID, index) => (
             <tr key={index}>
               <td>
-              <Link to={`/game/${item}`}>{item}</Link>
+              <Link to={`/game/${gameID}`}>{gameID}</Link>
               </td>
             </tr>
           ))}
